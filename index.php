@@ -1,6 +1,7 @@
 <script>
         function User(){
-            this.username = '';
+            this.username = 'Khoi';
             this.password = '';
+            this.address = '';
         }
 </script>
