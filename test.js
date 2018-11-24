@@ -44,6 +44,14 @@ if(user.checkLogin()){
 else{
     console.log("Login error");
 }
+// obejct
+ 
+var objStudent = {id:1,name:"Tuan Khoi",address:"Ha Noi"};
+console.log(objStudent.id);
+console.log(objStudent.name);
+console.log(objStudent.address);
+
+
 
 
 
