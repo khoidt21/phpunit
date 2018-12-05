@@ -4,6 +4,7 @@
         
         public function getKeyCode($url)
         {
+            // kiem tra link url dung dinh dang regex
             $pattern  = '/v=(\w+)/';
             $matches  = array();
             preg_match($pattern, $url, $matches);
