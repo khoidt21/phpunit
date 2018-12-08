@@ -13,9 +13,22 @@
              Search: <input type="text" name="key" id="key">
              <input type="button" id="search" value="Search">
         </form>
+        <div id="resultSearch"></div>
         <script>
              $(document).ready(function () {
-                    
+                   $("#search").click(function (e) { 
+                       e.preventDefault();
+                       $.ajax({
+                           type: "POST",
+                           url: "resultSearch.php",
+                           data: {'key' : $('#key').val()},
+                           dataType: "text",
+                           success: function (response) {
+                               $('#resultSearch').html(response);
+                           }
+                       });
+                       
+                   }); 
              });   
         </script>
         <form id="form1" method="POST">
