@@ -8,14 +8,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
     <div>
         <form id="form2" method="POST">
              Search: <input type="text" name="key" id="key">
              <input type="button" id="search" value="Search">
         </form>
         <div id="resultSearch"></div>
+        <div>Menu</div>
+        <ul id="nav">
+            <li class="active">Li 1</li>
+            <li>Li 2</li>
+            <li>Li 3</li>
+            <li>Li 4</li>
+            <li>Li 5</li>
+        </ul>
+        <select id="country" name="country">
+              <option value="0">--Chọn nước--</option>
+              <option value="1">Viet Nam</option>
+              <option value="2">Philipin</option>
+              <option value="3">Malaysia</option>
+              <option value="4">Thailand</option>              
+        </select>
         <script>
              $(document).ready(function () {
+                   // event select 
+                   $("#country").change(function (e) {
+                       var value = $('select option:selected').val();
+                       var text = $('select option:selected').text();
+                       //alert(value  +  text); 
+                       e.preventDefault();
+                       
+                   }); 
+
+                   // menu 
+                   $("#nav li").click(function (e) { 
+                       $('#nav li.active').removeClass('active');
+                       $(this).addClass('active');
+                   }); 
+
+
                    $("#search").click(function (e) { 
                        e.preventDefault();
                        $.ajax({
