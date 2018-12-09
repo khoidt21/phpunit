@@ -10,14 +10,11 @@
              die("Connection failed: " . $conn->connect_error);
          } 
          $key = isset($_POST['key']) ? $_POST['key'] : '';
-        // echo $key;
-        // die();
-
-         $sql = "SELECT FROM Students WHERE NAME LIKE '%"+$key+"%'";
-        // echo $sql;
-        // die();
-         $result = $conn->query($sql);
-         while($row = mysql_fetch_array($result)){
+       
+         $query = "SELECT name FROM city WHERE name like '%" . $key. "%' "; 
+         
+         $result = $conn->query($query);
+         while($row = mysqli_fetch_array($result)){
              echo $row['id']."<br/>";
              echo $row['name']."<br/>";
              echo $row['email']."<br/>";

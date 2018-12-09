@@ -34,13 +34,15 @@
               <option value="3">Malaysia</option>
               <option value="4">Thailand</option>              
         </select>
+        <div id="box"></div>
         <script>
              $(document).ready(function () {
                    // event select 
                    $("#country").change(function (e) {
                        var value = $('select option:selected').val();
                        var text = $('select option:selected').text();
-                       //alert(value  +  text); 
+                       var response = value + " " + text;
+                       $('#box').html(response); 
                        e.preventDefault();
                        
                    }); 
@@ -50,8 +52,7 @@
                        $('#nav li.active').removeClass('active');
                        $(this).addClass('active');
                    }); 
-
-
+                   
                    $("#search").click(function (e) { 
                        e.preventDefault();
                        $.ajax({
